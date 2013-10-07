@@ -214,8 +214,8 @@
 
 #ifndef ENDSTOPPULLUPS
   // fine Enstop settings: Individual Pullups. will be ignord if ENDSTOPPULLUPS is defined
-  #define ENDSTOPPULLUP_XMAX
-  #define ENDSTOPPULLUP_YMAX
+  //#define ENDSTOPPULLUP_XMAX
+  //#define ENDSTOPPULLUP_YMAX
   #define ENDSTOPPULLUP_ZMAX
   #define ENDSTOPPULLUP_XMIN
   #define ENDSTOPPULLUP_YMIN
@@ -225,10 +225,10 @@
 #ifdef ENDSTOPPULLUPS
 //  #define ENDSTOPPULLUP_XMAX
 //  #define ENDSTOPPULLUP_YMAX
-//  #define ENDSTOPPULLUP_ZMAX
+  #define ENDSTOPPULLUP_ZMAX
   #define ENDSTOPPULLUP_XMIN
   #define ENDSTOPPULLUP_YMIN
-  #define ENDSTOPPULLUP_ZMIN
+//  #define ENDSTOPPULLUP_ZMIN
 #endif
 
 // The pullups are needed if you directly connect a mechanical endswitch between the signal and ground pins.
@@ -260,16 +260,16 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 // Sets direction of endstops when homing; 1=MAX, -1=MIN
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
-#define Z_HOME_DIR -1
+#define Z_HOME_DIR 1
 
 #define min_software_endstops true //If true, axis won't move to coordinates less than HOME_POS.
 #define max_software_endstops true  //If true, axis won't move to coordinates greater than the defined lengths below.
 // Travel limits after homing
-#define X_MAX_POS 150
+#define X_MAX_POS 125
 #define X_MIN_POS 0
-#define Y_MAX_POS 150
+#define Y_MAX_POS 100
 #define Y_MIN_POS 0
-#define Z_MAX_POS 150
+#define Z_MAX_POS 117
 #define Z_MIN_POS 0
 
 #define X_MAX_LENGTH (X_MAX_POS - X_MIN_POS)
@@ -292,8 +292,8 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 // default settings
 
 #define DEFAULT_AXIS_STEPS_PER_UNIT   {94.139704,94.139704,2560.0,99.5*100.470957614}  // default steps per unit for cupcake
-#define DEFAULT_MAX_FEEDRATE          {4000, 4000, 150, 1600}    // (mm/sec)    
-#define DEFAULT_MAX_ACCELERATION      {9000,9000,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
+#define DEFAULT_MAX_FEEDRATE          {4000, 4000, 4*60, 80}    // (mm/sec)    
+#define DEFAULT_MAX_ACCELERATION      {9000,9000,10,500}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 
 #define DEFAULT_ACCELERATION          3000    // X, Y, Z and E max acceleration in mm/s^2 for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  3000   // X, Y, Z and E max acceleration in mm/s^2 for r retracts
